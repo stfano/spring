@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.basic.model.repository.UserMapper">
+    <select id="selectUserAll" resultType="UserEntity">
+    <!--조회데이터 결과를 productEntity로 매핑해줘--> 
+        select 
+            user_id
+            , user_name
+            , user_age
+        from user
+        ;
+    </select>
+
+    <select id = "selectUserByFilter" resultType="UserEntity">
+        select 
+            user_id
+            , user_name
+            , user_age
+        from user
+        where 1=1
+        <if test='user_name != null and user_age > 0'> <!-- 0보다 크면 쿼리문 실행 아니면 삭제-->
+            and user_age >= #{user_age}
+        </if>
+        <if test = 'user_name != null and user_name != ""'>
+            and user_name like concat('%', #{user_name}, '%')
+        </if>
+        ;
+    </select>
+</mapper>

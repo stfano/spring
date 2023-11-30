@@ -1,0 +1,26 @@
+# Spring Boot 설정 ! 
+
+spring:
+    # Spring Boot 로그 
+    output:
+        ansi:
+            enabled: always
+
+    # DataBase(MySQL) 설정 ! 
+
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/examplesdb?userSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+        username: urstory
+        password: u1234
+        driver-class-name: com.mysql.jdbc.Driver
+
+# MyBatis 설정 ! 
+mybatis:
+    type-aliases-package: com.example.basic.model.entity
+    mapper-locations: classpath:mapper/**/*.xml
+    configuration: 
+        map-underscore-to-camel-case: true
+        # underscore 를 camel 표기법으로 바꾸어줘
+
+
+
