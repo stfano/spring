@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Form View</h1>
+    <h3 th:text=" 'form에서 넘어온 값 : ' + ${data1} +'입니당' "></h3>
+    <form action="thymeleaf/form" method="post">
+        <input type="text" name="data1" th:value="${data1}">
+        <input type="submit" value="제출">
+    </form>
+</body>
+</html>
