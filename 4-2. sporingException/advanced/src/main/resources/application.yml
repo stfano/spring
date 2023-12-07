@@ -1,0 +1,35 @@
+server:
+    servlet:
+        encoding:
+        # 한글깨짐 처리 
+            force-response: true
+
+spring:
+    output:
+        ansi:
+            enabled: always
+    
+    # 데이터베이스 세팅!!
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/examplesdb?userSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+        username: urstory
+        password: u1234
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+    # jpa 세팅!!
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                show_sql: true
+                format_sql: true 
+
+    mustache:
+        prefix: classpath:templates/
+        check-template-location: true
+        suffix: .html
+        cache: false
+        
+    mvc:
+        static-path-pattern: /static/**
